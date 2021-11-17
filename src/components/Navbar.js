@@ -13,18 +13,6 @@ const Navbar = () => {
 			<div className={styles.item}>
 				Друзья
 			</div>
-			<div className={styles.item}>
-				Сообщества
-			</div>
-			<div className={styles.item}>
-				Фотографии
-			</div>
-			<div className={styles.item}>
-				Музыка
-			</div>
-			<div className={styles.item}>
-				Видео
-			</div>
 		</nav>
 	)
 }

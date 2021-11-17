@@ -1,0 +1,49 @@
+.profile {
+  grid-area: c;
+  display: grid;
+  grid-template-areas:
+  "infoColumn postsColumn";
+  grid-template-columns: 300px 1fr;
+  grid-gap: 10px;
+}
+
+.infoColumn {
+  grid-area: infoColumn;
+  display: grid;
+  grid-template-areas:
+  "profilePhoto"
+  "shortFriendlist";
+  grid-template-rows: 400px 1fr;
+  grid-gap: 10px;
+}
+
+.profilePhoto {
+  grid-area: profilePhoto;
+  background-color: red;
+}
+
+.shortFriendlist {
+  grid-area: shortFriendlist;
+  background-color: orange;
+}
+
+.postsColumn {
+  grid-area: postsColumn;
+  display: grid;
+  grid-template-areas:
+  "personalInfo"
+  "personalPosts";
+  grid-template-rows: 400px 1fr;
+  grid-gap: 10px;
+}
+
+.personalInfo {
+  grid-area: personalInfo;
+  background-color: green;
+}
+
+.personalPosts {
+  grid-area: personalPosts;
+  display: flex;
+  flex-direction: column;
+}
