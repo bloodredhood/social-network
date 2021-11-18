@@ -32,7 +32,7 @@ const Post = (props) => {
 						like
 					</div>
 					<p className={styles.weakText}>
-						+counter
+						{props.likesCount}
 					</p>
 				</div>
 				<div className={styles.postFootItem}>

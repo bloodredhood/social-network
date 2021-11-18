@@ -5,13 +5,16 @@ const Navbar = () => {
 	return (
 		<nav className={styles.nav}>
 			<div className={`${styles.item} ${styles.active}`}>
-				Моя страница
+				Profile
 			</div>
 			<div className={styles.item}>
-				Новости
+				News
 			</div>
 			<div className={styles.item}>
-				Друзья
+				Friends
+			</div>
+			<div className={styles.item}>
+				Dialogs
 			</div>
 		</nav>
 	)
