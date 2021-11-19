@@ -9,3 +9,9 @@
   width: 1140px;
   margin: 0 auto
 }
+
+.content-wrapper {
+  grid-area: c;
+  grid-gap: 10px;
+  background-color: limegreen;
+}

@@ -1,10 +1,8 @@
 .profile {
-  grid-area: c;
   display: grid;
   grid-template-areas:
   "infoColumn postsColumn";
   grid-template-columns: 300px 1fr;
-  grid-gap: 10px;
 }
 
 .infoColumn {
