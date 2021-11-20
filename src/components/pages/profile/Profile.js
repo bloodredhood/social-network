@@ -1,24 +1,24 @@
 import React from "react";
 import Post from "./profile-items/Post";
-import styles from "./Profile.module.css"
+import "./Profile.css"
 
 const Profile = () => {
 	return (
-		<div className={styles.profile}>
+		<div className='profile'>
 			<img src="" alt="" />
-			<div className={styles.infoColumn}>
-				<div className={styles.profilePhoto}>
+			<div className='infoColumn'>
+				<div className='profilePhoto'>
 					photo
 				</div>
-				<div className={styles.shortFriendlist}>
+				<div className='shortFriendlist'>
 					6 random friends block
 				</div>
 			</div>
-			<div className={styles.postsColumn}>
-				<div className={styles.personalInfo}>
+			<div className='postsColumn'>
+				<div className='personalInfo'>
 					profile info
 				</div>
-				<div className={styles.personalPosts}>
+				<div className='personalPosts'>
 					<Post text={"any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. "} likesCount={1}/>
 					<Post text={"lorem lorem blablabla"} likesCount={15}/>
 					<Post text={"SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED "} likesCount={5}/>

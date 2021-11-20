@@ -1,4 +1,5 @@
 .profile {
+  grid-area: c;
   display: grid;
   grid-template-areas:
   "infoColumn postsColumn";
@@ -22,6 +23,8 @@
 
 .shortFriendlist {
   grid-area: shortFriendlist;
+  display: flex;
+  height: 250px;
   background-color: orange;
 }
 
