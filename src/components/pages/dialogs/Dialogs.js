@@ -1,6 +1,7 @@
 import React from "react"
 import "./Dialogs.css"
 import DialogsItem from "./dialogs-items/DialogsItem"
+import MessagesItem from "./dialogs-items/MessagesItem"
 
 const Dialogs = () => {
   return (
@@ -14,7 +15,9 @@ const Dialogs = () => {
         <DialogsItem id={6} name={'YouTube'} />
       </div>
       <div className='dialogsMessagesWindow'>
-        Hey, how are you? =)
+        <MessagesItem messages={'Hey, how are you? =)'}/>
+        <MessagesItem messages={'Hello world'}/>
+        <MessagesItem messages={'Hi'}/>
       </div>
     </div>
   )

@@ -4,6 +4,7 @@
   grid-template-areas:
   "infoColumn postsColumn";
   grid-template-columns: 300px 1fr;
+  grid-gap: 10px;
 }
 
 .infoColumn {
@@ -11,7 +12,7 @@
   display: grid;
   grid-template-areas:
   "profilePhoto"
-  "shortFriendlist";
+  "personalInfo";
   grid-template-rows: 400px 1fr;
   grid-gap: 10px;
 }
@@ -21,10 +22,9 @@
   background-color: red;
 }
 
-.shortFriendlist {
-  grid-area: shortFriendlist;
+.postCreating {
+  grid-area: postCreating;
   display: flex;
-  height: 250px;
   background-color: orange;
 }
 
@@ -32,7 +32,7 @@
   grid-area: postsColumn;
   display: grid;
   grid-template-areas:
-  "personalInfo"
+  "postCreating"
   "personalPosts";
   grid-template-rows: 400px 1fr;
   grid-gap: 10px;
@@ -40,7 +40,8 @@
 
 .personalInfo {
   grid-area: personalInfo;
-  background-color: green;
+  background-color: orange;
+  margin-bottom: 10px;
 }
 
 .personalPosts {

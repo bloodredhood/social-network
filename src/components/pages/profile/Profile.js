@@ -10,13 +10,13 @@ const Profile = () => {
 				<div className='profilePhoto'>
 					photo
 				</div>
-				<div className='shortFriendlist'>
-					6 random friends block
+				<div className='personalInfo'>
+					profile info
 				</div>
 			</div>
 			<div className='postsColumn'>
-				<div className='personalInfo'>
-					profile info
+				<div className='postCreating'>
+					post creating
 				</div>
 				<div className='personalPosts'>
 					<Post text={"any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. "} likesCount={1}/>
