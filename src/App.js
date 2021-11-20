@@ -15,10 +15,10 @@ function App(props) {
         <Navbar />
         <div className="content-wrapper">
           <Routes>
-            <Route path='/profile' element={<Profile />} />
-            <Route path='/dialogs' element={<Dialogs />} />
-            <Route path='/friends' element={<Friends />} />
-            <Route path='/news' element={<News />} />
+            <Route exact path='/profile' element={<Profile />} />
+            <Route exact path='/dialogs' element={<Dialogs />} />
+            <Route exact path='/friends' element={<Friends />} />
+            <Route exact path='/news' element={<News />} />
           </Routes>
         </div>
       </div>
