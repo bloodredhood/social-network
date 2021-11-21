@@ -9,41 +9,38 @@
 
 .infoColumn {
   grid-area: infoColumn;
-  display: grid;
-  grid-template-areas:
-  "profilePhoto"
-  "personalInfo";
-  grid-template-rows: 400px 1fr;
-  grid-gap: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .profilePhoto {
   grid-area: profilePhoto;
   background-color: red;
-}
-
-.postCreating {
-  grid-area: postCreating;
-  display: flex;
-  background-color: orange;
-}
-
-.postsColumn {
-  grid-area: postsColumn;
-  display: grid;
-  grid-template-areas:
-  "postCreating"
-  "personalPosts";
-  grid-template-rows: 400px 1fr;
-  grid-gap: 10px;
+  height: 350px;
+  margin-bottom: 10px;
 }
 
 .personalInfo {
   grid-area: personalInfo;
   background-color: orange;
-  margin-bottom: 10px;
+  height: 700px;
 }
 
+
+.postsColumn {
+  grid-area: postsColumn;
+  display: flex;
+  flex-direction: column;
+}
+
+.postCreating {
+  grid-area: postCreating;
+  display: flex;
+  flex-direction: column;
+  background-color: orange;
+  height: 250px;
+  margin-bottom: 10px;
+}
 .personalPosts {
   grid-area: personalPosts;
   display: flex;
