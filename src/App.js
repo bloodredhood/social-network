@@ -8,6 +8,7 @@ import News from './components/pages/news/News';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App(props) {
+
   return (
     <Router>
       <div className="app-wrapper">
@@ -15,10 +16,10 @@ function App(props) {
         <Navbar />
         <div className="content-wrapper">
           <Routes>
-            <Route exact path='/profile' element={<Profile />} />
-            <Route exact path='/dialogs' element={<Dialogs />} />
-            <Route exact path='/friends' element={<Friends />} />
-            <Route exact path='/news' element={<News />} />
+            <Route path='/profile' element={ <Profile posts={props.posts}/>} />
+            <Route path='/dialogs' element={ <Dialogs dialogs={props.dialogs} messages={props.messages} />} />
+            <Route path='/friends' element={ <Friends /> } />
+            <Route path='/news' element={ <News /> } />
           </Routes>
         </div>
       </div>

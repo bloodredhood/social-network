@@ -2,15 +2,9 @@ import React from "react";
 import Post from "./profile-items/Post";
 import "./Profile.css"
 
-const posts = [
-  {id: 1, likesCount: 1, text: "any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. "},
-  {id: 2, likesCount: 15, text: "lorem lorem blablabla"},
-  {id: 3, likesCount: 5, text: "SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED "},
-]
+const Profile = (props) => {
 
-const postElements = posts.map( p => <Post text={p.text} likesCount={p.likesCount} />)
-
-const Profile = () => {
+  const postElements = props.posts.map( p => <Post text={p.text} likesCount={p.likesCount} />)
 
   return (
     <div className='profile'>
