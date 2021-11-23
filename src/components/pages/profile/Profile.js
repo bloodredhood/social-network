@@ -4,7 +4,7 @@ import "./Profile.css"
 
 const Profile = (props) => {
 
-  const postElements = props.posts.map( p => <Post text={p.text} likesCount={p.likesCount} />)
+  const postElements = props.posts.map( p => <Post key={p.id} text={p.text} likesCount={p.likesCount} />)
 
   return (
     <div className='profile'>
