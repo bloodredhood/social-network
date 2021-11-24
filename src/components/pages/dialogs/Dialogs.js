@@ -5,8 +5,13 @@ import MessagesItem from "./dialogs-items/MessagesItem"
 
 const Dialogs = (props) => {
 
-  const dialogsElements = props.dialogs.map(d => <DialogsItem key={d.id} name={d.name} />)
-  const messageElements = props.messages.map(m => <MessagesItem key={m.id} message={m.message} />)
+  const dialogsElements = props.dialogs.map(d => <DialogsItem id={d.id} name={d.name} />)
+  const messageElements = props.messages.map(m => <MessagesItem id={m.id} message={m.message} />)
+
+  const newPersonalPostElement = React.createRef()
+  const addPersonalPost = () => {
+    const text = newPersonalPostElement.current.value
+  }
 
   return (
     <div className='dialogsWrapper'>
@@ -14,6 +19,8 @@ const Dialogs = (props) => {
         {dialogsElements}
       </div>
       <div className='dialogsMessagesWindow'>
+        <textarea ref={newPersonalPostElement}></textarea>
+        <button onClick={addPersonalPost}>add post</button>
         {messageElements}
       </div>
     </div>

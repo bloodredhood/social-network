@@ -6,6 +6,12 @@ const Profile = (props) => {
 
   const postElements = props.posts.map( p => <Post key={p.id} text={p.text} likesCount={p.likesCount} />)
 
+  const newPostElement = React.createRef()
+  const addNewPost = () => {
+    let text = newPostElement.current.value
+    props.addPost(text)
+  }
+
   return (
     <div className='profile'>
       <img src="" alt="" />
@@ -20,10 +26,10 @@ const Profile = (props) => {
       <div className='postsColumn'>
         <div className='postCreating'>
           <div>
-            <textarea></textarea>
+            <textarea ref={newPostElement}></textarea>
           </div>
           <div>
-            <button>Add post</button>
+            <button onClick={ addNewPost }>Add post</button>
           </div>
         </div>
         <div className='personalPosts'>
