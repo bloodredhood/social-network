@@ -8,9 +8,12 @@ const Profile = (props) => {
 
   const newPostElement = React.createRef()
   const addNewPost = () => {
-    let text = newPostElement.current.value
-    props.addPost(text)
-    newPostElement.current.value = ''
+    props.addPost()
+  }
+
+  const onPostChange = () => {
+    const text = newPostElement.current.value
+    props.updateNewPostText(text)
   }
 
   return (
@@ -27,7 +30,7 @@ const Profile = (props) => {
       <div className='postsColumn'>
         <div className='postCreating'>
           <div>
-            <textarea ref={newPostElement}></textarea>
+            <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText} />
           </div>
           <div>
             <button onClick={ addNewPost }>Add post</button>

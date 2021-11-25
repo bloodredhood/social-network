@@ -6,7 +6,9 @@ const state = {
       {id: 1, likesCount: 1, text: "any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. any text u wanna write. "},
       {id: 2, likesCount: 15, text: "lorem lorem blablabla"},
       {id: 3, likesCount: 5, text: "SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED "},
-    ]
+    ],
+    newPostText: "you can write here"
+
   },
   dialogsPage: {
     dialogs: [
@@ -28,13 +30,19 @@ const state = {
   }
 }
 
-export const addPost = (postMessage) => {
+export const addPost = () => {
   const newPost = {
     id: 5,
-    text: postMessage,
+    text: state.profilePage.newPostText,
     likesCount: 0
   }
-  state.profilePage.posts.push(newPost);
+  state.profilePage.posts.push(newPost)
+  state.profilePage.newPostText = ''
+  rerenderEntireTree(state)
+}
+
+export const updateNewPostText = (newText) => {
+  state.profilePage.newPostText = newText
   rerenderEntireTree(state)
 }
 
