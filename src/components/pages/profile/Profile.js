@@ -10,6 +10,7 @@ const Profile = (props) => {
   const addNewPost = () => {
     let text = newPostElement.current.value
     props.addPost(text)
+    newPostElement.current.value = ''
   }
 
   return (

@@ -4,10 +4,10 @@ import DialogsItem from "./dialogs-items/DialogsItem"
 import MessagesItem from "./dialogs-items/MessagesItem"
 
 const Dialogs = (props) => {
-
-  const dialogsElements = props.dialogs.map(d => <DialogsItem id={d.id} name={d.name} />)
-  const messageElements = props.messages.map(m => <MessagesItem id={m.id} message={m.message} />)
-
+  console.log(props)
+  const dialogsElements = props.dialogsPage.dialogs.map(d => <DialogsItem id={d.id} name={d.name} />)
+  const messageElements = props.dialogsPage.messages.map(m => <MessagesItem id={m.id} message={m.message} />)
+  
   const newPersonalPostElement = React.createRef()
   const addPersonalPost = () => {
     const text = newPersonalPostElement.current.value
