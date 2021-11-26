@@ -7,6 +7,7 @@ const Profile = (props) => {
   const postElements = props.posts.map( p => <Post key={p.id} text={p.text} likesCount={p.likesCount} />)
 
   const newPostElement = React.createRef()
+  
   const addNewPost = () => {
     props.addPost()
   }
