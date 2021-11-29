@@ -1,6 +1,8 @@
 import React from "react";
+import { addPostActionCreator, updateNewPostActionCreator } from "../../../redux/state";
 import Post from "./profile-items/Post";
 import "./Profile.css"
+
 
 const Profile = (props) => {
 
@@ -9,12 +11,12 @@ const Profile = (props) => {
   const newPostElement = React.createRef()
   
   const addNewPost = () => {
-    props.dispatch({type: "ADD_POST"})
+    props.dispatch(addPostActionCreator())
   }
 
   const onPostChange = () => {
     const text = newPostElement.current.value
-    props.dispatch({type: "UPDATE_NEW_POST_TEXT", newText: text})
+    props.dispatch(updateNewPostActionCreator(text))
   }
 
   return (
