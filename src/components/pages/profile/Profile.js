@@ -4,17 +4,17 @@ import "./Profile.css"
 
 const Profile = (props) => {
 
-  const postElements = props.posts.map( p => <Post key={p.id} text={p.text} likesCount={p.likesCount} />)
+  const postElements = props.profilePage.posts.map( p => <Post key={p.id} text={p.text} likesCount={p.likesCount} />)
 
   const newPostElement = React.createRef()
   
   const addNewPost = () => {
-    props.addPost()
+    props.dispatch({type: "ADD_POST"})
   }
 
   const onPostChange = () => {
     const text = newPostElement.current.value
-    props.updateNewPostText(text)
+    props.dispatch({type: "UPDATE_NEW_POST_TEXT", newText: text})
   }
 
   return (

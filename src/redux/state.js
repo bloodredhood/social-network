@@ -29,41 +29,41 @@ let store = {
       newMessageText: ""
     }
   },
-  getState() {
-    return this._state;
-  },
   _callSubscriber() {
     console.log('state changed');
   },
-  addPost() {
-    const newPost = {
-      id: Date.now(),
-      text: this._state.profilePage.newPostText,
-      likesCount: 0,
-    }
-    this._state.profilePage.posts.push(newPost)
-    this._state.profilePage.newPostText = ''
-    this._callSubscriber(this._state)
-  },
-  updateNewPostText(newText) {
-    this._state.profilePage.newPostText = newText
-    this._callSubscriber(this._state)
-  },
-  addMessage() {
-    const newMessage = {
-      id: Date.now(),
-      message: this._state.dialogsPage.newMessageText,
-    }
-    this._state.dialogsPage.messages.push(newMessage)
-    this._state.dialogsPage.newMessageText = ''
-    this._callSubscriber(this._state)
-  },
-  updateNewMessageText(newMessage) {
-    this._state.dialogsPage.newMessageText = newMessage
-    this._callSubscriber(this._state)
+  getState() {
+    return this._state;
   },
   subscribe(observer) {
     this._callSubscriber = observer //observer pattern
+  },
+
+  dispatch(action) {
+    if (action.type === "ADD_POST") {
+      const newPost = {
+        id: Date.now(),
+        text: this._state.profilePage.newPostText,
+        likesCount: 0,
+      }
+      this._state.profilePage.posts.push(newPost)
+      this._state.profilePage.newPostText = ''
+      this._callSubscriber(this._state)
+    } else if (action.type === "UPDATE_NEW_POST_TEXT") {
+      this._state.profilePage.newPostText = action.newText
+      this._callSubscriber(this._state)
+    } else if (action.type === "ADD_MESSAGE") {
+      const newMessage = {
+        id: Date.now(),
+        message: this._state.dialogsPage.newMessageText,
+      }
+      this._state.dialogsPage.messages.push(newMessage)
+      this._state.dialogsPage.newMessageText = ''
+      this._callSubscriber(this._state)
+    } else if (action.type === "UPDATE_NEW_MESSAGE_TEXT") {
+      this._state.dialogsPage.newMessageText = action.newMessage
+      this._callSubscriber(this._state)
+    }
   }
 }
 
