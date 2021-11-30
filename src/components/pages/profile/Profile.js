@@ -5,9 +5,9 @@ import "./Profile.css"
 
 
 const Profile = (props) => {
-
-  const postElements = props.profilePage.posts.map( p => <Post key={p.id} text={p.text} likesCount={p.likesCount} />)
-
+  
+  const state = props.store.getState().profilePage
+  const postElements = state.posts.map( p => <Post key={p.id} text={p.text} likesCount={p.likesCount} />)
   const newPostElement = React.createRef()
   
   const addNewPost = () => {

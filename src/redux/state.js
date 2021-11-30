@@ -1,5 +1,7 @@
 const ADD_POST = "ADD_POST"
 const UPDATE_NEW_POST_TEXT = "UPDATE_NEW_POST_TEXT"
+const UPDATE_NEW_MESSAGE_BODY = "UPDATE_NEW_MESSAGE_BODY"
+const SEND_MESSAGE = "SEND_MESSAGE"
 
 let store = {
   _state: {
@@ -29,7 +31,7 @@ let store = {
         {id: 5, message: 'cya'},
         {id: 6, message: 'you welcome'},
       ],
-      newMessageText: ""
+      newMessageBody: ""
     }
   },
   _callSubscriber() {
@@ -43,7 +45,7 @@ let store = {
   },
 
   dispatch(action) {
-    if (action.type === "ADD_POST") {
+    if (action.type === ADD_POST) {
       const newPost = {
         id: Date.now(),
         text: this._state.profilePage.newPostText,
@@ -52,19 +54,16 @@ let store = {
       this._state.profilePage.posts.push(newPost)
       this._state.profilePage.newPostText = ''
       this._callSubscriber(this._state)
-    } else if (action.type === "UPDATE_NEW_POST_TEXT") {
+    } else if (action.type === UPDATE_NEW_POST_TEXT) {
       this._state.profilePage.newPostText = action.newText
       this._callSubscriber(this._state)
-    } else if (action.type === "ADD_MESSAGE") {
-      const newMessage = {
-        id: Date.now(),
-        message: this._state.dialogsPage.newMessageText,
-      }
-      this._state.dialogsPage.messages.push(newMessage)
-      this._state.dialogsPage.newMessageText = ''
+    }  else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
+      this._state.dialogsPage.newMessageBody = action.body
       this._callSubscriber(this._state)
-    } else if (action.type === "UPDATE_NEW_MESSAGE_TEXT") {
-      this._state.dialogsPage.newMessageText = action.newMessage
+    } else if (action.type === SEND_MESSAGE) {
+      const body = this._state.dialogsPage.newMessageBody
+      this._state.dialogsPage.newMessageBody = ""
+      this._state.dialogsPage.messages.push({id: Date.now(), message: body},)
       this._callSubscriber(this._state)
     }
   }
@@ -72,6 +71,8 @@ let store = {
 
 export const addPostActionCreator = () => ({type: ADD_POST})
 export const updateNewPostActionCreator = text => ({type: UPDATE_NEW_POST_TEXT, newText: text})
+export const updateNewMessageBodyActionCreator = body => ({type: UPDATE_NEW_MESSAGE_BODY, body: body})
+export const sendMessageActionCreator = () => ({type: SEND_MESSAGE})
 
 export default store
 window.store = store
