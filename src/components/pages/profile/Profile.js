@@ -8,14 +8,14 @@ const Profile = (props) => {
   
   const state = props.store.getState().profilePage
   const postElements = state.posts.map( p => <Post key={p.id} text={p.text} likesCount={p.likesCount} />)
-  const newPostElement = React.createRef()
+
   
   const addNewPost = () => {
     props.dispatch(addPostActionCreator())
   }
 
-  const onPostChange = () => {
-    const text = newPostElement.current.value
+  const onPostChange = (e) => {
+    const text = e.target.value
     props.dispatch(updateNewPostActionCreator(text))
   }
 
@@ -33,7 +33,7 @@ const Profile = (props) => {
       <div className='postsColumn'>
         <div className='postCreating'>
           <div>
-            <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText} />
+            <textarea onChange={onPostChange} value={state.newPostText} />
           </div>
           <div>
             <button onClick={ addNewPost }>Add post</button>

@@ -7,7 +7,6 @@ import { sendMessageActionCreator, updateNewMessageBodyActionCreator } from "../
 const Dialogs = (props) => {
 
   const state = props.store.getState().dialogsPage
-
   const dialogsElements = state.dialogs.map(d => <DialogsItem id={d.id} name={d.name} />)
   const messageElements = state.messages.map(m => <MessagesItem id={m.id} message={m.message} />)
   const newMessageBody = state.newMessageBody
