@@ -10,7 +10,6 @@ let store = {
         {id: 3, likesCount: 5, text: "SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED SO BORED "},
       ],
       newPostText: ""
-  
     },
     dialogsPage: {
       dialogs: [
