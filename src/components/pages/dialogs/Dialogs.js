@@ -7,8 +7,8 @@ const Dialogs = (props) => {
 
   const state = props.dialogsPage
 
-  const dialogsElements = state.dialogs.map(d => <DialogsItem id={d.id} name={d.name} />)
-  const messageElements = state.messages.map(m => <MessagesItem id={m.id} message={m.message} />)
+  const dialogsElements = state.dialogs.map(d => <DialogsItem id={d.id} key={d.id} name={d.name} />)
+  const messageElements = state.messages.map(m => <MessagesItem id={m.id} key={m.id} message={m.message} />)
   const newMessageBody = state.newMessageBody
   
   const addNewMessage = () => {
