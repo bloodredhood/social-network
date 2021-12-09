@@ -1,17 +1,18 @@
-import axios from "axios";
+import * as axios from "axios";
 import React from "react";
 import userPhoto from "../../../assets/images/user.png";
 
 const Users = (props) => {
   if (props.users.length === 0) {
 
-    axios.get("https://social-network.samuraijs.com/api/1.0/users")
+    axios.get("/users")
     .then(response => {
       props.setUsers(response.data.items)
       
     })
     
   }
+
   console.log(props)
   return (
     <div>
@@ -19,8 +20,8 @@ const Users = (props) => {
         props.users.map(u =>
           <div key={u.id}>
             <span>
-              <div style={{ backgroundColor: "red", width: "50px", height: "50px" }}>
-                <img src={ u.photos.small != null ? u.photos.small : userPhoto} />
+              <div>
+                <img style={{ width: "50px", height: "50px" }} src={ u.photo != null ? u.photo : userPhoto} alt="" />
               </div>
               <div>
                 {u.followed
