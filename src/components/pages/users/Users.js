@@ -3,19 +3,18 @@ import React from "react";
 import userPhoto from "../../../assets/images/user.png";
 
 const Users = (props) => {
-  if (props.users.length === 0) {
 
-    axios.get("/users")
-    .then(response => {
-      props.setUsers(response.data.items)
-      
-    })
-    
+  const getUsers = () => {
+    if (props.users.length === 0) {
+      axios.get("/users").then(response => {
+        console.log(response);
+        props.setUsers(response.data)})
+    }
   }
 
-  console.log(props)
   return (
     <div>
+      <button onClick={getUsers}>Get Users</button>
       {
         props.users.map(u =>
           <div key={u.id}>
