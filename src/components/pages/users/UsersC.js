@@ -4,12 +4,10 @@ import userPhoto from "../../../assets/images/user.png";
 
 class UsersC extends React.Component {
 
-  constructor(props) {
-    super(props)
-
+  componentDidMount() {
     axios.get("/users").then(response => {
       console.log(response);
-      props.setUsers(response.data)
+      this.props.setUsers(response.data)
     })
   }
 
