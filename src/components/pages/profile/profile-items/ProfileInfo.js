@@ -1,12 +1,19 @@
 import React from "react";
+import Preloader from "../../../common/Preloader";
+import "../Profile.css"
 
-const ProfileInfo = () => {
+const ProfileInfo = (props) => {
+
+  if (!props.profile) {
+    return <Preloader />
+  }
+
   return (
     <>
       <img src="" alt="" />
       <div className='infoColumn'>
         <div className='profilePhoto'>
-          photo
+          <img src={props.profile.photos.large} alt=""/>
         </div>
         <div className='personalInfo'>
           profile info

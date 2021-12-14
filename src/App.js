@@ -1,7 +1,7 @@
 import './App.css';
 import Header from './components/Header';
 import Navbar from './components/Navbar';
-import Profile from './components/pages/profile/Profile';
+import ProfileContainer from './components/pages/profile/ProfileContainer';
 import DialogsContainer from './components/pages/dialogs/DialogsContainer';
 import UsersContainer from './components/pages/users/UsersContainer';
 import News from './components/pages/news/News';
@@ -16,7 +16,7 @@ function App(props) {
       <Navbar />
       <div className="content-wrapper">
         <Routes>
-          <Route path='/profile' index element={<Profile />} />
+          <Route path='/profile/*' element={<ProfileContainer />} />
           <Route path='/dialogs/*' element={<DialogsContainer />}>
           </Route>
           <Route path='/users' element={<UsersContainer />} />
