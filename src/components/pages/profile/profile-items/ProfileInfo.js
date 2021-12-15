@@ -8,11 +8,13 @@ const ProfileInfo = (props) => {
     return <Preloader />
   }
 
+  console.log(props.profile)
+
   return (
     <>
-      <img src="" alt="" />
       <div className='infoColumn'>
         <div className='profilePhoto'>
+          
           <img src={props.profile.photos.large} alt=""/>
         </div>
         <div className='personalInfo'>
