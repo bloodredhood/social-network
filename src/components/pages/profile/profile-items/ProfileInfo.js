@@ -8,10 +8,9 @@ const ProfileInfo = (props) => {
     return <Preloader />
   }
 
-  console.log(props.profile)
-
   return (
     <>
+
       <div className='infoColumn'>
         <div className='profilePhoto'>
           

@@ -8,10 +8,19 @@ import { useParams } from "react-router";
 const ProfileContainer = (props) => {
 
   const userId = useParams()
-  console.log(userId)
+  const pageNumPick = (userId) => {
+    for (let key in userId) {
+      return userId[key]
+    }
+  }
+
+  let pageNum = pageNumPick(userId)
+  if (!pageNum) {
+    pageNum = 2
+  }
 
   useEffect(() => {
-    axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`).then(response => {
+    axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${pageNum}`).then(response => {
       props.setUserProfile(response.data)
       
     })
