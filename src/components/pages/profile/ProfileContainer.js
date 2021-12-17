@@ -16,7 +16,7 @@ const ProfileContainer = (props) => {
 
   let pageNum = pageNumPick(userId)
   if (!pageNum) {
-    pageNum = 2
+    pageNum = 21379
   }
 
   useEffect(() => {
