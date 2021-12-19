@@ -1,30 +1,24 @@
-import axios from "axios";
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import Profile from "./Profile";
-import { setUserProfile } from "../../../redux/profileReducer";
+import { getUserProfile } from "../../../redux/profileReducer";
 import { useParams } from "react-router";
 
 const ProfileContainer = (props) => {
 
-  const userId = useParams()
-  const pageNumPick = (userId) => {
-    for (let key in userId) {
-      return userId[key]
+  const pageNum = useParams()
+  const pageNumPick = (pageNum) => {
+    for (let key in pageNum) {
+      return pageNum[key]
     }
   }
 
-  let pageNum = pageNumPick(userId)
-  if (!pageNum) {
-    pageNum = 21379
+  let userId = pageNumPick(pageNum)
+  if (!userId) {
+    userId = 21379
   }
 
-  useEffect(() => {
-    axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${pageNum}`).then(response => {
-      props.setUserProfile(response.data)
-      
-    })
-  })
+  props.getUserProfile(userId)
 
   return (
     <Profile {...props} profile={props.profile} />
@@ -36,4 +30,4 @@ const mapStateToProps = state => ({
 })
 
 
-export default connect(mapStateToProps, { setUserProfile })(ProfileContainer)
+export default connect(mapStateToProps, { getUserProfile })(ProfileContainer)
