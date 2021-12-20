@@ -1,10 +1,10 @@
 import "./Dialogs.css"
 import { sendMessageActionCreator, updateNewMessageBodyActionCreator } from "../../../redux/dialogsReducer"
 import Dialogs from "./Dialogs"
-import {connect} from "react-redux"
+import { connect } from "react-redux"
 import {withAuthRedirect} from "../../../hoc/withAuthRedirect"
+import { compose } from "redux"
 
-let AuthRedirectComponent = withAuthRedirect(Dialogs)
 
 const mapStateToProps = (state) => {
   return {
@@ -12,4 +12,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {updateNewMessageBodyActionCreator, sendMessageActionCreator})(AuthRedirectComponent)
+export default compose(
+
+  connect(mapStateToProps, {updateNewMessageBodyActionCreator, sendMessageActionCreator}),
+
+  withAuthRedirect,
+
+)(Dialogs)
