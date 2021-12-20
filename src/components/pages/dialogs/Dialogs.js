@@ -2,7 +2,6 @@ import React from "react"
 import "./Dialogs.css"
 import DialogsItem from "./dialogs-items/DialogsItem"
 import MessagesItem from "./dialogs-items/MessagesItem"
-import { Navigate } from "react-router"
 
 const Dialogs = (props) => {
 
@@ -20,8 +19,6 @@ const Dialogs = (props) => {
     const body = e.target.value
     props.updateNewMessageBody(body)
   }
-
-  if (!props.isAuth) return <Navigate to={"/login"} />
 
   return (
     <div className='dialogsWrapper'>
