@@ -17,7 +17,7 @@ const ProfileContainer = (props) => {
 
   let userId = pageNumPick(pageNum)
   if (!userId) {
-    userId = 2
+    userId = 21379
     //userId = 21379
   }
 
