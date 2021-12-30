@@ -28,6 +28,7 @@ const ProfileContainer = (props) => {
     <Profile {...props} profile={props.profile} status={props.status} updateStatus={props.updateStatus} />
   )
 }
+
 const mapStateToProps = state => ({
   profile: state.profilePage.profile,
   status: state.profilePage.status

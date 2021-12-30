@@ -6,11 +6,9 @@ import {withAuthRedirect} from "../../../hoc/withAuthRedirect"
 import { compose } from "redux"
 
 
-const mapStateToProps = (state) => {
-  return {
-    dialogsPage: {...state.dialogsPage},
-  }
-}
+const mapStateToProps = (state) => ({
+  dialogsPage: {...state.dialogsPage},
+})
 
 
 export default compose(

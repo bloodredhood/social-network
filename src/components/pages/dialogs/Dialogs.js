@@ -2,7 +2,8 @@ import React from "react"
 import "./Dialogs.css"
 import DialogsItem from "./dialogs-items/DialogsItem"
 import MessagesItem from "./dialogs-items/MessagesItem"
-import { Field, reduxForm } from "redux-form"
+import AddMessageForm from "./dialogs-items/AddMessageForm"
+import { Navigate } from "react-router"
 
 const Dialogs = (props) => {
 
@@ -15,6 +16,8 @@ const Dialogs = (props) => {
     props.sendMessage(values.newMessageBody)
   }
 
+  if(!props.isAuth) return <Navigate to="/login" />
+
   return (
     <div className='dialogsWrapper'>
       <div className='dialogsItems'>
@@ -22,23 +25,10 @@ const Dialogs = (props) => {
       </div>
       <div className='dialogsMessagesWindow'>
         <div>{messageElements}</div>
-        <AddMessageFormRedux onSubmit={addNewMessage}/>
+        <AddMessageForm onSubmit={addNewMessage}/>
       </div>
     </div>
   )
 }
-
-const AddMessageForm = (props) => {
-  return (
-    <form onSubmit={props.handleSubmit}>
-      <Field component="textarea" name="newMessageBody" placeholder="Enter your message" />
-      <div>
-        <button>Send</button>
-      </div>
-    </form>
-  )
-}
-
-const AddMessageFormRedux = reduxForm({form: "dialogAddMessageForm"})(AddMessageForm)
 
 export default Dialogs

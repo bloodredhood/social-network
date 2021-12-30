@@ -1,8 +1,11 @@
 import React from "react";
+import { Navigate } from "react-router";
 import MyPostsContainer from "./profile-items/MyPostsContainer";
 import ProfileInfo from "./profile-items/ProfileInfo";
 
 const Profile = (props) => {
+
+  if (!props.isAuth) return <Navigate to="/login" />
 
   return (
     <div className='profile'>
