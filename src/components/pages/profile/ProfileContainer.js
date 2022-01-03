@@ -17,8 +17,7 @@ const ProfileContainer = (props) => {
 
   let userId = pageNumPick(pageNum)
   if (!userId) {
-    userId = 21379
-    //userId = 21379
+    userId = props.authorizedUserId
   }
 
   props.getUserProfile(userId)
@@ -31,7 +30,9 @@ const ProfileContainer = (props) => {
 
 const mapStateToProps = state => ({
   profile: state.profilePage.profile,
-  status: state.profilePage.status
+  status: state.profilePage.status,
+  authorizedUserId: state.userId,
+  isAuth: state.auth.isAuth
 })
 
 export default compose(
