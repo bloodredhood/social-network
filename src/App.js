@@ -9,13 +9,15 @@ import { Routes, Route } from 'react-router-dom';
 import HeaderContainer from './components/HeaderContainer';
 import React from 'react';
 import { connect } from 'react-redux';
-import { getAuthUserData } from './redux/authReducer';
+import { initializeApp } from './redux/appReducer';
+import Preloader from './components/common/Preloader';
 
 
 const App = (props) => {
 
-  props.getAuthUserData()
+  props.initializeApp()
 
+  if(!props.initialized) {return <Preloader />}
   return (
     <div className="app-wrapper">
       <HeaderContainer />
@@ -34,5 +36,8 @@ const App = (props) => {
   )
 }
 
+const mapStateToProps = state => ({
+  initialized: state.app.initialized
+})
 
-export default connect(null, { getAuthUserData })(App)
+export default connect(mapStateToProps, { initializeApp })(App)

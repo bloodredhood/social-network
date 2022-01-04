@@ -45,6 +45,7 @@ const Users = (props) => {
             <span>
               <span>
                 <div>{u.name}</div>
+                <div>{u.id}</div>
                 <div>{u.status}</div>
               </span>
             </span>

@@ -19,6 +19,9 @@ const ProfileContainer = (props) => {
   let userId = pageNumPick(pageNum)
   if (!userId) {
     userId = props.authorizedUserId
+    if(!userId) {
+      props.history.push("/login")
+    }
   }
 
   props.getUserProfile(userId)
