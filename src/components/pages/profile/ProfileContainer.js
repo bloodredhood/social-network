@@ -9,6 +9,7 @@ import {compose} from "redux"
 const ProfileContainer = (props) => {
 
   const pageNum = useParams()
+
   const pageNumPick = (pageNum) => {
     for (let key in pageNum) {
       return pageNum[key]
@@ -31,7 +32,7 @@ const ProfileContainer = (props) => {
 const mapStateToProps = state => ({
   profile: state.profilePage.profile,
   status: state.profilePage.status,
-  authorizedUserId: state.userId,
+  authorizedUserId: state.auth.userId,
   isAuth: state.auth.isAuth
 })
 

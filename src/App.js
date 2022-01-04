@@ -7,9 +7,14 @@ import News from './components/pages/news/News';
 import Login from './components/login/Login';
 import { Routes, Route } from 'react-router-dom';
 import HeaderContainer from './components/HeaderContainer';
+import React from 'react';
+import { connect } from 'react-redux';
+import { getAuthUserData } from './redux/authReducer';
 
 
-function App(props) {
+const App = (props) => {
+
+  props.getAuthUserData()
 
   return (
     <div className="app-wrapper">
@@ -26,7 +31,8 @@ function App(props) {
         </Routes>
       </div>
     </div>
-  );
+  )
 }
 
-export default App;
+
+export default connect(null, { getAuthUserData })(App)
