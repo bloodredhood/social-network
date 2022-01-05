@@ -14,7 +14,7 @@ const Users = (props) => {
 
   return (
     <div>
-      <div className={styles.continerForBreadCrumb}>
+      <div className={styles.containerForBreadCrumb}>
         {pages.map(p => {
           return <span className={props.currentPage === p && styles.selectedPage} onClick={(e) => { props.onPageChanged(p) }} >{p}</span>
         })}

@@ -3,7 +3,7 @@
   color: white;
 }
 
-.continerForBreadCrumb {
+.containerForBreadCrumb {
   display: flex;
   flex-wrap: wrap;
 }
