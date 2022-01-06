@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const ProfileStatusFunc = (props) => {
 
-  const [editMode, setEditMode] = useState(true)
+  const [editMode, setEditMode] = useState(false)
   const [status, setStatus] = useState(props.status)
 
   const activateEditMode = () => {
@@ -18,15 +18,19 @@ const ProfileStatusFunc = (props) => {
     setStatus(e.currentTarget.value)
   }
 
+  useEffect(() => {
+    setStatus(props.status)
+  }, [props.status])
+
   return (
     <div>
       {!editMode &&
         <div>
-          <span onClick={activateEditMode}>{props.status || "empty status"}</span>
+          <span onClick={activateEditMode} >{props.status || "empty status"}</span>
         </div>}
       {editMode &&
         <div>
-          <input autoFocus={false} onChange={onStatusChange} onBlur={deactivateEditMode} value={status} />
+          <input onChange={onStatusChange} autoFocus={true} onBlur={deactivateEditMode} value={status} />
         </div>}
     </div>
   )
