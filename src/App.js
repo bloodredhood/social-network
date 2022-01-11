@@ -12,12 +12,16 @@ import { connect } from 'react-redux';
 import { initializeApp } from './redux/appReducer';
 import Preloader from './components/common/Preloader';
 
+import { BrowserRouter } from 'react-router-dom';
+import {Provider} from 'react-redux'
+import store from "./redux/reduxStore"
+
 
 const App = (props) => {
 
   props.initializeApp()
 
-  if(!props.initialized) {return <Preloader />}
+  if (!props.initialized) { return <Preloader /> }
   return (
     <div className="app-wrapper">
       <HeaderContainer />
@@ -40,4 +44,16 @@ const mapStateToProps = state => ({
   initialized: state.app.initialized
 })
 
-export default connect(mapStateToProps, { initializeApp })(App)
+const AppContainer = connect(mapStateToProps, { initializeApp })(App)
+
+const SocialNetworkApp = () => {
+  return (
+    <BrowserRouter>
+      <Provider store={store}>
+        <AppContainer />
+      </Provider>
+    </BrowserRouter>
+  )
+}
+
+export default SocialNetworkApp
