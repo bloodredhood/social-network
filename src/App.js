@@ -1,20 +1,22 @@
 import './App.css';
 import Navbar from './components/Navbar';
-import ProfileContainer from './components/pages/profile/ProfileContainer';
-import DialogsContainer from './components/pages/dialogs/DialogsContainer';
 import UsersContainer from './components/pages/users/UsersContainer';
 import News from './components/pages/news/News';
 import Login from './components/login/Login';
 import { Routes, Route } from 'react-router-dom';
 import HeaderContainer from './components/HeaderContainer';
-import React from 'react';
+import React, { Suspense } from 'react';
 import { connect } from 'react-redux';
 import { initializeApp } from './redux/appReducer';
 import Preloader from './components/common/Preloader';
 
 import { BrowserRouter } from 'react-router-dom';
-import {Provider} from 'react-redux'
+import { Provider } from 'react-redux'
 import store from "./redux/reduxStore"
+
+
+const DialogsContainer = React.lazy(() => import('./components/pages/dialogs/DialogsContainer'))
+const ProfileContainer = React.lazy(() => import('./components/pages/profile/ProfileContainer'))
 
 
 const App = (props) => {
@@ -27,14 +29,16 @@ const App = (props) => {
       <HeaderContainer />
       <Navbar />
       <div className="content-wrapper">
-        <Routes>
-          <Route path='/profile/*' element={<ProfileContainer />} />
-          <Route path='/dialogs/*' element={<DialogsContainer />}>
-          </Route>
-          <Route path='/users/*' element={<UsersContainer />} />
-          <Route path='/news/*' element={<News />} />
-          <Route path='/login/*' element={<Login />} />
-        </Routes>
+        <Suspense fallback={<Preloader />} >
+          <Routes>
+            <Route path='/profile/*' element={<ProfileContainer />} />
+            <Route path='/dialogs/*' element={<DialogsContainer />}>
+            </Route>
+            <Route path='/users/*' element={<UsersContainer />} />
+            <Route path='/news/*' element={<News />} />
+            <Route path='/login/*' element={<Login />} />
+          </Routes>
+        </Suspense>
       </div>
     </div>
   )
