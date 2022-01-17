@@ -13,5 +13,4 @@
 .content-wrapper {
   grid-area: c;
   grid-gap: 10px;
-  background-color: limegreen;
 }

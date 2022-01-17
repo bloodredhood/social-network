@@ -15,9 +15,13 @@
 
 .profilePhoto {
   grid-area: profilePhoto;
-  background-color: red;
-  height: 350px;
+  background-color: rgb(198, 214, 243);
   margin-bottom: 10px;
+}
+
+.profilePhoto img {
+  max-width: fit-content;
+  vertical-align: middle;
 }
 
 .personalInfo {
