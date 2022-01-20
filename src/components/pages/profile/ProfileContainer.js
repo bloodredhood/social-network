@@ -1,33 +1,30 @@
-import React from "react";
-import { connect } from "react-redux";
+import React, {useEffect} from "react";
+import {connect} from "react-redux";
 import Profile from "./Profile";
-import { getUserProfile, getStatus, updateStatus } from "../../../redux/profileReducer";
-import { useParams } from "react-router";
+import {getUserProfile, getStatus, updateStatus} from "../../../redux/profileReducer";
+import {useParams} from "react-router";
 import {compose} from "redux"
 
 const ProfileContainer = (props) => {
 
-  const pageNum = useParams()
+  const {user_id} = useParams();
 
-  const pageNumPick = (pageNum) => {
-    for (let key in pageNum) {
-      return pageNum[key]
+  useEffect(() => {
+    let userId = user_id;
+    if (!userId) {
+      userId = props.authorizedUserId;
+      if (!userId) {
+        props.history.push("/login")
+      }
     }
-  }
-
-  let userId = pageNumPick(pageNum)
-  if (!userId) {
-    userId = props.authorizedUserId
-    if(!userId) {
-      props.history.push("/login")
-    }
-  }
-
-  props.getUserProfile(userId)
-  props.getStatus(userId)
+    if (!userId) return;
+    props.getUserProfile(userId);
+    props.getStatus(userId);
+    console.log("======> request")
+  }, [user_id]);
 
   return (
-    <Profile {...props} profile={props.profile} status={props.status} updateStatus={props.updateStatus} />
+      <Profile {...props} profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
   )
 }
 
@@ -39,7 +36,5 @@ const mapStateToProps = state => ({
 })
 
 export default compose(
-
-  connect(mapStateToProps, { getUserProfile, getStatus, updateStatus })
-  
+    connect(mapStateToProps, {getUserProfile, getStatus, updateStatus})
 )(ProfileContainer)
