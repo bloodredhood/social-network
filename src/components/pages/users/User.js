@@ -8,7 +8,9 @@ const User = ({ user, followingInProgress, follow, unfollow }) => {
       <span>
         <div>
           <NavLink to={"/profile/" + user.id}>
-            <img style={{ width: "75px", height: "75px" }} src={user.photos.small != null ? user.photos.small : userPhoto} alt="" />
+            <img style={{ width: "75px", height: "75px" }}
+                 src={user.photos.small != null
+                     ? user.photos.small : userPhoto} alt="" />
           </NavLink>
         </div>
         <div>
