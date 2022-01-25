@@ -26,11 +26,12 @@ const ProfileStatusFunc = (props) => {
     <div>
       {!editMode ?
         <div>
+          <b>Status: </b>
           <span onClick={activateEditMode} >{props.status || "empty status"}</span>
         </div>
         :
         <div>
-          <input onChange={onStatusChange} autoFocus={true} onBlur={deactivateEditMode} value={status} />
+          <b>Status: </b><input onChange={onStatusChange} autoFocus={true} onBlur={deactivateEditMode} value={status} />
         </div>}
     </div>
   )

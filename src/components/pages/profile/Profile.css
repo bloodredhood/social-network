@@ -15,7 +15,6 @@
 
 .profilePhoto {
   grid-area: profilePhoto;
-  background-color: rgb(198, 214, 243);
   margin-bottom: 10px;
 }
 
@@ -48,4 +47,8 @@
   grid-area: personalPosts;
   display: flex;
   flex-direction: column;
+}
+
+.contact {
+  padding-left: 10px;
 }
