@@ -1,10 +1,14 @@
-import React from "react";
+import React, {useState} from "react";
 import Preloader from "../../../common/Preloader";
 import "../Profile.css"
 import ProfileStatusFunc from "./ProfileStatusFunc"
 import userPhoto from "../../../../assets/images/user.png";
+import ProfileDataForm from "./ProfileDataForm";
 
 const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
+
+  const [editMode, setEditMode] = useState(false)
+
   if (!profile) {
     return <Preloader/>
   }
@@ -25,7 +29,12 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
 
         <div className='personalInfo'>
           <div>
-            <ProfileData profile={profile}/>
+            { editMode
+                ? <ProfileDataForm profile={profile} />
+                : <ProfileData goToEditMode={
+                  () => setEditMode(true)
+                } profile={profile} isOwner={isOwner} />
+            }
             <ProfileStatusFunc status={status} updateStatus={updateStatus}/>
           </div>
         </div>
@@ -41,9 +50,10 @@ const Contact = ({contactTitle, contactValue}) => {
   )
 }
 
-const ProfileData = ({profile}) => {
+const ProfileData = ({profile, isOwner, goToEditMode}) => {
   return (
       <>
+        {isOwner && <div><button onClick={goToEditMode} >Edit</button></div>}
         <div>
           <b>Full name</b>: {profile.fullName}
         </div>
@@ -55,7 +65,6 @@ const ProfileData = ({profile}) => {
             <b>My professional skills</b>: {profile.lookingForAJobDescription}
           </div>
         }
-
         <div>
           <b>About me</b>: {profile.aboutMe}
         </div>
