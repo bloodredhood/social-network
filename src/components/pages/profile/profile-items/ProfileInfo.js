@@ -5,7 +5,7 @@ import ProfileStatusFunc from "./ProfileStatusFunc"
 import userPhoto from "../../../../assets/images/user.png";
 import ProfileDataForm from "./ProfileDataForm";
 
-const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
+const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, saveProfile}) => {
 
   const [editMode, setEditMode] = useState(false)
 
@@ -19,6 +19,10 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
     }
   }
 
+  const onSubmit = formData => {
+    saveProfile(formData)
+  }
+
   return (
       <div className='infoColumn'>
         <div className='profilePhoto'>
@@ -30,7 +34,7 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
         <div className='personalInfo'>
           <div>
             { editMode
-                ? <ProfileDataForm profile={profile} />
+                ? <ProfileDataForm profile={profile} onSubmit={onSubmit}/>
                 : <ProfileData goToEditMode={
                   () => setEditMode(true)
                 } profile={profile} isOwner={isOwner} />

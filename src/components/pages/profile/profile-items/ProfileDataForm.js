@@ -2,9 +2,9 @@ import React from "react";
 import {createField, Input, Textarea} from "../../../common/FormsControls/FormsControls";
 import {reduxForm} from "redux-form";
 
-const ProfileDataForm = ({profile}) => {
+const ProfileDataForm = ({onSubmit, profile}) => {
   return (
-      <form>
+      <form onSubmit={onSubmit}>
         <div><button onClick={ () => {} } >Save</button></div>
         <div>
           <b>Full name</b>: {createField(
