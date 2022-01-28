@@ -21,6 +21,7 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, savePro
 
   const onSubmit = formData => {
     saveProfile(formData)
+    setEditMode(false)
   }
 
   return (
@@ -34,7 +35,7 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, savePro
         <div className='personalInfo'>
           <div>
             { editMode
-                ? <ProfileDataForm profile={profile} onSubmit={onSubmit}/>
+                ? <ProfileDataForm initialValues={profile} profile={profile} onSubmit={onSubmit}/>
                 : <ProfileData goToEditMode={
                   () => setEditMode(true)
                 } profile={profile} isOwner={isOwner} />
